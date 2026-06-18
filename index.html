@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bolt Plus — знижка для підписників · Bolt Food</title>
+<meta name="description" content="Партнерський пітч Bolt Food: тест спеціальної знижки для підписників Bolt Plus із прозорою моделлю кофінансування. Тестовий період 24–30 червня 2026." />
+<meta property="og:title" content="Bolt Plus — знижка для підписників" />
+<meta property="og:description" content="Тест спеціальної знижки для найлояльнішої аудиторії Bolt Food. Ви обираєте рівень знижки, Bolt співфінансує промо." />
+<meta property="og:type" content="website" />
+<link rel="stylesheet" href="./colors_and_type.css" />
+<style>
+  :root { --maxw: 880px; }
+
+  body { background: var(--color-layer-floor-0-grouped); }
+
+  .page { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--dimension-600) var(--dimension-1600); }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    max-width: var(--maxw); margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--dimension-600);
+  }
+  .brand { display: inline-flex; align-items: center; gap: var(--dimension-300); }
+  .brand svg { height: 26px; width: auto; display: block; }
+  .brand .sub { color: var(--color-content-secondary); }
+
+  .theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; padding: 0; cursor: pointer;
+    background: var(--color-bg-neutral-secondary); color: var(--color-content-primary);
+    border: 0; border-radius: var(--corner-radius-full);
+    transition: background-color 150ms linear, transform 100ms ease-in-out;
+  }
+  .theme-toggle:active { transform: scale(0.975); }
+  .theme-toggle:hover { background: var(--color-bg-active-neutral-secondary); }
+  .theme-toggle .moon { display: none; }
+  [data-mode="dark"] .theme-toggle .sun { display: none; }
+  [data-mode="dark"] .theme-toggle .moon { display: inline-flex; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--color-special-brand-alt);
+    border-radius: var(--corner-radius-xl);
+    padding: var(--dimension-1200) var(--dimension-800);
+    color: var(--color-content-primary-inverted);
+    position: relative; overflow: hidden;
+  }
+  .hero .badge-row { display: flex; flex-wrap: wrap; gap: var(--dimension-200); margin-bottom: var(--dimension-600); }
+  .pill-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: var(--corner-radius-full);
+    background: rgba(255,255,255,0.12); color: #fff;
+    font: 650 0.6875rem/1 "InterVariable", sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .pill-tag.brand { background: var(--color-core-brand-green); }
+  .hero h1 { color: #fff; max-width: 18ch; }
+  .hero p.lead {
+    color: rgba(255,255,255,0.82); margin-top: var(--dimension-400); max-width: 56ch;
+    font: 450 1.125rem/1.6 "InterVariable", sans-serif; letter-spacing: -0.014em;
+  }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: var(--dimension-200); margin-top: var(--dimension-800); }
+  .meta-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border-radius: var(--corner-radius-full);
+    background: rgba(255,255,255,0.08); color: #fff;
+    font: 650 0.875rem/1 "InterVariable", sans-serif; letter-spacing: -0.006em;
+  }
+  .meta-chip svg { width: 18px; height: 18px; color: var(--color-core-green-7); }
+
+  /* ---------- Sections / Islands ---------- */
+  section { margin-top: var(--dimension-800); }
+  .eyebrow { color: var(--color-content-tertiary); display: block; margin-bottom: var(--dimension-200); }
+  .island {
+    background: var(--color-layer-floor-1);
+    border-radius: var(--corner-radius-l);
+    padding: var(--dimension-800);
+  }
+  .island + .island { margin-top: var(--dimension-200); }
+  .island h2 { margin-bottom: var(--dimension-300); }
+  .island p.muted { color: var(--color-content-secondary); }
+
+  /* ---------- Cost-share table ---------- */
+  .cs-table { width: 100%; margin-top: var(--dimension-500); }
+  .cs-head, .cs-row {
+    display: grid; grid-template-columns: 1fr 1fr 120px; align-items: center;
+    gap: var(--dimension-400); padding: var(--dimension-400) 0;
+  }
+  .cs-head {
+    color: var(--color-content-secondary);
+    font: 650 0.6875rem/1 "InterVariable", sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+    padding-bottom: var(--dimension-300);
+  }
+  .cs-row { border-top: 1px solid var(--color-border-separator); }
+  .cs-row .menu { font: 650 1.125rem/1 "InterVariable", sans-serif; letter-spacing: -0.014em; font-feature-settings: "tnum","cv03","cv04"; }
+  .cs-bar-wrap { display: flex; align-items: center; gap: var(--dimension-300); }
+  .cs-bar { flex: 1; height: 8px; border-radius: var(--corner-radius-full); background: var(--color-bg-neutral-secondary); overflow: hidden; }
+  .cs-bar > span { display: block; height: 100%; background: var(--color-bg-action-primary); border-radius: var(--corner-radius-full); }
+  .cs-bar-val { font: 650 0.875rem/1 "InterVariable", sans-serif; font-feature-settings: "tnum"; color: var(--color-content-secondary); min-width: 40px; text-align: right; }
+  .cs-tag-cell { justify-self: end; }
+  .badge-positive {
+    display: inline-flex; align-items: center; padding: 4px 10px; border-radius: var(--corner-radius-s);
+    background: var(--color-bg-action-secondary); color: var(--color-content-action-primary);
+    font: 650 0.75rem/1.2 "InterVariable", sans-serif; font-feature-settings: "tnum";
+  }
+
+  .example-note {
+    display: flex; gap: var(--dimension-400); align-items: flex-start;
+    margin-top: var(--dimension-500); padding: var(--dimension-400) var(--dimension-500);
+    border-radius: var(--corner-radius-m); background: var(--color-bg-promo-secondary);
+  }
+  .example-note .ic { color: var(--color-content-promo-primary); flex-shrink: 0; display: inline-flex; }
+  .example-note p { color: var(--color-content-primary); font-size: 0.9375rem; line-height: 1.55; }
+
+  /* ---------- Reasons grid ---------- */
+  .reasons { display: grid; grid-template-columns: 1fr 1fr; gap: var(--dimension-200); margin-top: var(--dimension-200); }
+  .reason {
+    background: var(--color-layer-floor-1); border-radius: var(--corner-radius-l);
+    padding: var(--dimension-600);
+  }
+  .reason .ic {
+    width: 44px; height: 44px; border-radius: var(--corner-radius-full);
+    background: var(--color-bg-action-secondary); color: var(--color-content-action-primary);
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: var(--dimension-400);
+  }
+  .reason h3 { font: 650 1.125rem/1.4 "InterVariable", sans-serif; letter-spacing: -0.014em; margin-bottom: 6px; }
+  .reason p { color: var(--color-content-secondary); font-size: 0.9375rem; line-height: 1.55; }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    background: var(--color-bg-action-primary);
+    border-radius: var(--corner-radius-xl);
+    padding: var(--dimension-1000) var(--dimension-800);
+    text-align: center; color: #fff; margin-top: var(--dimension-800);
+  }
+  .cta h2 { color: #fff; max-width: 24ch; margin: 0 auto var(--dimension-300); }
+  .cta p { color: rgba(255,255,255,0.85); max-width: 52ch; margin: 0 auto var(--dimension-600); font-size: 1.0625rem; line-height: 1.55; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font: 650 1rem/1 "InterVariable", sans-serif; letter-spacing: -0.011em;
+    border-radius: var(--corner-radius-full); border: 0; cursor: pointer;
+    padding: 0 28px; min-height: 56px; text-decoration: none;
+    transition: background-color 150ms linear, transform 100ms ease-in-out;
+  }
+  .btn:hover { text-decoration: none; }
+  .btn:active { transform: scale(0.975); }
+  .btn-onbrand { background: #fff; color: var(--color-core-brand-green-dark); }
+  .btn-onbrand:hover { background: rgba(255,255,255,0.9); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: var(--dimension-800) var(--dimension-600);
+    color: var(--color-content-tertiary);
+    font: 450 0.875rem/1.4 "InterVariable", sans-serif;
+    display: flex; align-items: center; justify-content: space-between; gap: var(--dimension-400); flex-wrap: wrap;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 680px) {
+    .hero { padding: var(--dimension-800) var(--dimension-600); }
+    .island { padding: var(--dimension-600); }
+    .reasons { grid-template-columns: 1fr; }
+    .cs-head, .cs-row { grid-template-columns: 1fr 1fr; }
+    .cs-tag-cell { display: none; }
+    .cs-head span:last-child { display: none; }
+  }
+</style>
+</head>
+<body data-mode="light">
+
+  <div class="topbar">
+    <span class="brand">
+      <svg viewBox="0 0 89 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bolt">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M71.5344 39.1003H62.2879V1.96605L71.5344 0.0200617V39.1003ZM45.2252 29.912C47.7836 29.912 49.8384 27.8657 49.8384 25.338V25.3179C49.8384 22.7901 47.7836 20.7238 45.2252 20.7238C42.6668 20.7238 40.612 22.7701 40.612 25.3179C40.612 27.8657 42.6668 29.912 45.2252 29.912ZM45.2252 11.1343C53.1019 11.1343 59.4676 17.4738 59.4676 25.338C59.4676 33.162 53.0817 39.5216 45.2051 39.5216C37.3284 39.5216 30.9627 33.142 30.9627 25.3179C30.9627 17.4938 37.3486 11.1343 45.2252 11.1343ZM45.2252 42.8117C42.6668 42.8117 40.612 44.8781 40.612 47.4059C40.612 49.9336 42.6668 52 45.2252 52C47.7836 52 49.8384 49.9537 49.8384 47.4059C49.8384 44.858 47.7836 42.8117 45.2252 42.8117ZM16.1763 29.912H16.3375C17.9289 29.8719 19.1779 28.5478 19.1376 26.963C19.0973 25.3781 17.7678 24.1343 16.1763 24.1744H9.24649V29.912H16.1763ZM9.24649 9.20833V14.946H14.3834C15.9749 14.946 17.2641 13.662 17.2641 12.0772C17.2641 10.4923 15.9749 9.20833 14.3834 9.20833H9.24649ZM24.6775 18.4367C26.974 20.7037 28.2632 23.7932 28.2632 26.983C28.2834 33.6636 22.8443 39.0802 16.1562 39.0802H0V0H14.3633C16.6195 0 18.8153 0.621914 20.7291 1.80556C26.4301 5.31636 28.2028 12.7593 24.6775 18.4367ZM88.9799 20.8441V11.6358H84.3465V4.6142L75.1202 6.56018V30.3534C75.1202 35.9707 78.6254 39.2006 83.7825 39.4614C83.8228 39.4614 83.9034 39.4815 83.9436 39.4815H84.0242C84.1451 39.4815 84.2458 39.5015 84.3667 39.5015H84.4875C86.0588 39.5015 87.61 39.1003 89 38.358V31.5772C88.3352 31.7577 87.6301 31.858 86.9452 31.838C85.0919 31.838 84.3868 30.233 84.3868 28.0463V20.8241L88.9799 20.8441Z" fill="var(--color-special-brand)"></path>
+      </svg>
+      <span class="sub bolt-font-body-m-accent">Food</span>
+    </span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Перемкнути тему">
+      <span class="sun"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm0 15a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6zm0 11a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM4 12a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zm18 0a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.6 5.6a1 1 0 011.4 0l.7.7a1 1 0 11-1.4 1.4l-.7-.7a1 1 0 010-1.4zm11 11a1 1 0 011.4 0l.7.7a1 1 0 11-1.4 1.4l-.7-.7a1 1 0 010-1.4zm1.4-11a1 1 0 010 1.4l-.7.7a1 1 0 11-1.4-1.4l.7-.7a1 1 0 011.4 0zm-11 11a1 1 0 010 1.4l-.7.7a1 1 0 11-1.4-1.4l.7-.7a1 1 0 011.4 0z"/></svg></span>
+      <span class="moon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z"/></svg></span>
+    </button>
+  </div>
+
+  <div class="page">
+
+    <!-- Hero -->
+    <section class="hero" style="margin-top: 0">
+      <div class="badge-row">
+        <span class="pill-tag brand">Bolt Plus</span>
+        <span class="pill-tag">Партнерський пітч</span>
+      </div>
+      <h1>Знижка для підписників Bolt Plus</h1>
+      <p class="lead">Запрошуємо вас долучитися до тесту спеціальної знижки лише для підписників Bolt Plus — найлояльнішої та найактивнішої аудиторії платформи. Ви обираєте рівень знижки на меню; решту вартості промо Bolt покриває разом із вами за прозорою моделлю кофінансування.</p>
+      <div class="meta">
+        <span class="meta-chip">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2a1 1 0 011 1v1h8V3a1 1 0 112 0v1h1a2 2 0 012 2v13a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 011-1zm12 7H5v10h14V9z"/></svg>
+          Тестовий період: 24–30 червня 2026
+        </span>
+        <span class="meta-chip">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4 0-8 2-8 6v1a1 1 0 001 1h14a1 1 0 001-1v-1c0-4-4-6-8-6z"/></svg>
+          Тільки для підписників Bolt Plus
+        </span>
+      </div>
+    </section>
+
+    <!-- Cost-share -->
+    <section>
+      <span class="eyebrow bolt-font-caps-s-accent">Модель кофінансування</span>
+      <div class="island">
+        <h2>Варіанти знижки та кофінансування</h2>
+        <p class="muted">Ви обираєте рівень знижки на меню. Стовпчик показує, яку частину вартості знижки покриваєте ви; решту співфінансує Bolt.</p>
+
+        <div class="cs-table">
+          <div class="cs-head">
+            <span>Знижка на меню</span>
+            <span>Ваше покриття знижки</span>
+            <span>Bolt</span>
+          </div>
+
+          <div class="cs-row">
+            <span class="menu">10%</span>
+            <span class="cs-bar-wrap"><span class="cs-bar"><span style="width:50%"></span></span><span class="cs-bar-val">50%</span></span>
+            <span class="cs-tag-cell"><span class="badge-positive">Bolt 50%</span></span>
+          </div>
+          <div class="cs-row">
+            <span class="menu">15%</span>
+            <span class="cs-bar-wrap"><span class="cs-bar"><span style="width:65%"></span></span><span class="cs-bar-val">65%</span></span>
+            <span class="cs-tag-cell"><span class="badge-positive">Bolt 35%</span></span>
+          </div>
+          <div class="cs-row">
+            <span class="menu">20%</span>
+            <span class="cs-bar-wrap"><span class="cs-bar"><span style="width:75%"></span></span><span class="cs-bar-val">75%</span></span>
+            <span class="cs-tag-cell"><span class="badge-positive">Bolt 25%</span></span>
+          </div>
+          <div class="cs-row">
+            <span class="menu">25%</span>
+            <span class="cs-bar-wrap"><span class="cs-bar"><span style="width:85%"></span></span><span class="cs-bar-val">85%</span></span>
+            <span class="cs-tag-cell"><span class="badge-positive">Bolt 15%</span></span>
+          </div>
+          <div class="cs-row">
+            <span class="menu">30%</span>
+            <span class="cs-bar-wrap"><span class="cs-bar"><span style="width:75%"></span></span><span class="cs-bar-val">75%</span></span>
+            <span class="cs-tag-cell"><span class="badge-positive">Bolt 25%</span></span>
+          </div>
+          <div class="cs-row">
+            <span class="menu">35%</span>
+            <span class="cs-bar-wrap"><span class="cs-bar"><span style="width:71%"></span></span><span class="cs-bar-val">71%</span></span>
+            <span class="cs-tag-cell"><span class="badge-positive">Bolt 29%</span></span>
+          </div>
+          <div class="cs-row">
+            <span class="menu">40%</span>
+            <span class="cs-bar-wrap"><span class="cs-bar"><span style="width:100%"></span></span><span class="cs-bar-val">100%</span></span>
+            <span class="cs-tag-cell"><span class="badge-positive">Bolt 0%</span></span>
+          </div>
+        </div>
+
+        <div class="example-note">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 5a1.25 1.25 0 110 2.5A1.25 1.25 0 0112 7zm1 11h-2a1 1 0 010-2v-4a1 1 0 011-1h1a1 1 0 011 1v5a1 1 0 01-1 1z"/></svg></span>
+          <p><b>Приклад.</b> При знижці 20% на меню партнер покриває 75% вартості знижки, Bolt — 25%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reasons -->
+    <section>
+      <span class="eyebrow bolt-font-caps-s-accent">Чому це варто спробувати</span>
+      <div class="reasons">
+        <div class="reason">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg></span>
+          <h3>Найлояльніша аудиторія</h3>
+          <p>Bolt Plus — користувачі з найвищою частотою замовлень і найкращим ретеншном на платформі.</p>
+        </div>
+        <div class="reason">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17l6-6 4 4 7-7v4a1 1 0 11-2 0v-1l-5 5-4-4-5 5a1 1 0 01-1-1z"/><path d="M3 19h18a1 1 0 010 2H3a1 1 0 010-2z"/></svg></span>
+          <h3>Більше замовлень у вас</h3>
+          <p>Цільова знижка підсилює мотивацію замовляти саме у вашому закладі, а не у конкурентів.</p>
+        </div>
+        <div class="reason">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5a1 1 0 10-2 0v5a1 1 0 00.3.7l3 3a1 1 0 001.4-1.4L13 11.6z"/></svg></span>
+          <h3>Контрольований тест</h3>
+          <p>7 днів для оцінки впливу на обсяг і лояльність — без довгострокових зобов’язань.</p>
+        </div>
+        <div class="reason">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h4v8H3zm7-6h4v14h-4zm7-4h4v18h-4z"/></svg></span>
+          <h3>Гнучкий рівень інвестиції</h3>
+          <p>Від м’якого входу (10% / 50% cost-share) до агресивнішого промо (до 40%).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Готові протестувати?</h2>
+      <p>Напишіть, який рівень знижки вам підходить — допоможемо швидко налаштувати та запустити тест 24–30 червня.</p>
+      <a class="btn btn-onbrand" href="mailto:partners@bolt.eu?subject=Bolt%20Plus%20%E2%80%94%20%D1%82%D0%B5%D1%81%D1%82%20%D0%B7%D0%BD%D0%B8%D0%B6%D0%BA%D0%B8">Обрати рівень знижки</a>
+    </section>
+
+  </div>
+
+  <footer>
+    <span>Bolt Food · Партнерський пітч · Bolt Plus · Червень 2026</span>
+    <span>Тільки для підписників Bolt Plus</span>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var body = document.body;
+      var saved = localStorage.getItem('bolt-plus-theme');
+      if (saved) body.setAttribute('data-mode', saved);
+      document.getElementById('themeToggle').addEventListener('click', function () {
+        var next = body.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-mode', next);
+        localStorage.setItem('bolt-plus-theme', next);
+      });
+    })();
+  </script>
+
+</body>
+</html>
